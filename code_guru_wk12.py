@@ -1,7 +1,7 @@
 """ 
-    Name: code_guru_wk9.py
+    Name: code_guru_wk12.py
     Author: Savannah Baird
-    Created: 10/16/25
+    Created: 11/06/25
     Purpose: A fun Mad Lib game
 """
 from rich.console import Console
@@ -20,26 +20,10 @@ def main():
    )
     # Show the story options
     print("1. Pirate Surprise \n2. Secret Adventure \n3. The Best Sport Story")
-    # Have the user input their choice
-    choose = input("Which story would you like? ")
-    # Use if/else to show the users choice of stories 
-    if choose == "1":
-        print("Great Choice!")
-        console = Console()
-        console.print("[blue]Pirate Surprise")
-        print(pirate())
-    elif choose == "2":
-        print("Great Choice!")
-        console = Console()
-        console.print("[red]Secret Adventure")
-        print(adventure())
-    elif choose == "3": 
-        print("Great Choice!")
-        console = Console()
-        console.print("[yellow]The Best Sport Story")
-        print(sport())
-    else: 
-        print("Play again later.")
+    
+    # call the choose function
+    choice()
+
 
 # TODO: Define the pirate story function
 def pirate():
@@ -90,5 +74,34 @@ def sport():
     # Return the story with the user input throughout the story
     return(f"It was the final match of the {pick[0]} season, and the crowd roared as {pick[1]} stepped onto the field wearing a {pick[2]} jersey and juggling {pick[3]}. Just as the whistle blew, they started {pick[4]} and shouted, “{pick[5]}!” The ball bounced off a {pick[6]}, and somehow they managed to {pick[7]} it straight into the record books.")
 
+# TODO: Define choice function
+def choice():
+    # Have the user input their choice
+    choose = input("Which story would you like? [x to exit] ")
+    # Use a while loop to allow you to keep playing
+    while choose != "x":
+        # Use if/else to show the users choice of stories 
+        if choose == "1":
+            print("Great Choice!")
+            console = Console()
+            console.print("[blue]Pirate Surprise")
+            print(pirate())
+            choose = input("Which story would you like? [x to exit] ")
+        elif choose == "2":
+            print("Great Choice!")
+            console = Console()
+            console.print("[red]Secret Adventure")
+            print(adventure())
+            choose = input("Which story would you like? [x to exit] ")
+        elif choose == "3": 
+            print("Great Choice!")
+            console = Console()
+            console.print("[yellow]The Best Sport Story")
+            print(sport())
+            choose = input("Which story would you like? [x to exit] ")
+        else: 
+            print("Play again later.")
+            break
+    print("Thanks for playing")
 # Define the main function
 main()
